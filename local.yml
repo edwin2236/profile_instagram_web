@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  farsy:
+    container_name: farsy_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    networks:
+      - containers_network
+    environment:
+      - "VIRTUAL_HOST=farsys.pcaingenieria.co"
+    expose:
+      - 80
+
+networks:
+  containers_network:
+    external: true
